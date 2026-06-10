@@ -204,9 +204,18 @@ main {
     color: #ff6f61;
 }
 
+.countdown-screen__heart {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
 .countdown-screen__title {
+    font-family: 'SuperChiby', cursive;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
-    font-weight: bold;
+    font-weight: normal;
     color: #ff6f61;
 }
 
