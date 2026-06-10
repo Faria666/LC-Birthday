@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   root: 'src',
-  base: '/lc-birthday/',
+  base: '/LC-Birthday/',
   publicDir: '../public',
   build: {
     outDir: '../dist',
