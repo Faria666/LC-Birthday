@@ -1,6 +1,6 @@
 import type { CountdownValue } from '../../types/index.js';
 
-export const COUNTDOWN_TARGET_UTC_MS = Date.UTC(2026, 5, 12, 7, 45, 0);
+export const COUNTDOWN_TARGET_UTC_MS = Date.UTC(2026, 5, 12, 8, 45, 0);
 
 export function getTimeRemaining(targetUtcMs: number): CountdownValue {
   const totalMs = Math.max(0, targetUtcMs - Date.now());
