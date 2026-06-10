@@ -1,0 +1,124 @@
+.celebration-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: min(700px, 92vw);
+}
+
+body[data-state='celebration'] .countdown-screen {
+  display: none;
+}
+
+body[data-state='celebration'] .celebration-screen {
+  display: flex;
+}
+
+@keyframes celebration-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.celebration__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: celebration-enter 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+  width: 100%;
+}
+
+.celebration__heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 1.2;
+}
+
+.celebration__illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  margin: 0 auto;
+}
+
+.celebration__illustration img {
+  width: 100%;
+  height: auto;
+  border-radius: 9999px;
+  box-shadow: 0 4px 24px rgba(44, 44, 44, 0.1);
+}
+
+.celebration__message {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.celebration__message p {
+  font-style: italic;
+}
+
+.celebration__stamp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  margin: 0 auto;
+  opacity: 0.85;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.celebration__stamp:hover {
+  opacity: 1;
+}
+
+.celebration__stamp img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .celebration-screen {
+    padding: 1rem;
+  }
+
+  .celebration__heading {
+    font-size: 2rem;
+  }
+
+  .celebration__illustration {
+    width: 160px;
+  }
+
+  .celebration__stamp {
+    width: 70px;
+  }
+
+  .celebration__message {
+    font-size: var(--text-base);
+    padding: 0.75rem 1rem;
+  }
+}

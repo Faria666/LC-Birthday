@@ -1,0 +1,388 @@
+@font-face {
+    font-family: 'SuperChiby';
+    src: url('../assets/fonts/super_chiby/Super Chiby.ttf') format('truetype');
+    font-display: swap;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ── Floating stickers in the pink background ── */
+.bg-stickers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    display: none;
+}
+
+body[data-state='celebration'] .bg-stickers {
+    display: block;
+}
+
+@keyframes sticker-pop {
+    from { opacity: 0; transform: scale(0.3) rotate(var(--rot)); }
+    60%  { transform: scale(1.15) rotate(var(--rot)); }
+    to   { opacity: 1; transform: scale(1) rotate(var(--rot)); }
+}
+
+body[data-state='celebration'] .sticker {
+    opacity: 0;
+    animation: sticker-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.sticker {
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+/* Top-center */
+.sticker--reader {
+    width: 95px; height: 95px;
+    top: 1%; left: 43%;
+    border-radius: 50%;
+    --rot: -6deg;
+}
+
+/* Left column — 6 stickers, evenly spaced (~16% apart) */
+.sticker--blossom {
+    width: 110px; height: 110px;
+    top: 4%; left: 3%;
+    border-radius: 50%;
+    --rot: -12deg;
+}
+
+.sticker--church {
+    width: 95px; height: 95px;
+    top: 20%; left: 9%;
+    border-radius: 16px;
+    --rot: -5deg;
+}
+
+.sticker--traveler {
+    width: 100px; height: 100px;
+    top: 36%; left: 13%;
+    border-radius: 50%;
+    --rot: -10deg;
+}
+
+.sticker--dog {
+    width: 100px; height: 100px;
+    top: 52%; left: 7%;
+    border-radius: 16px;
+    --rot: 5deg;
+}
+
+.sticker--plant2 {
+    width: 90px; height: 90px;
+    top: 68%; left: 4%;
+    border-radius: 50%;
+    --rot: -9deg;
+}
+
+.sticker--pudding {
+    width: 100px; height: 100px;
+    bottom: 4%; left: 17%;
+    border-radius: 50%;
+    --rot: 8deg;
+}
+
+/* Right column — 5 stickers, evenly spaced (~21% apart) */
+.sticker--book {
+    width: 90px; height: 90px;
+    top: 4%; right: 8%;
+    border-radius: 16px;
+    --rot: 10deg;
+}
+
+.sticker--plant {
+    width: 90px; height: 90px;
+    top: 25%; right: 4%;
+    border-radius: 16px;
+    --rot: 7deg;
+}
+
+.sticker--mapgirl {
+    width: 95px; height: 95px;
+    top: 46%; right: 13%;
+    border-radius: 50%;
+    --rot: 11deg;
+}
+
+.sticker--chibi {
+    width: 95px; height: 95px;
+    top: 67%; right: 18%;
+    border-radius: 50%;
+    --rot: 14deg;
+}
+
+.sticker--kpop {
+    width: 110px; height: 110px;
+    bottom: 4%; right: 11%;
+    border-radius: 50%;
+    --rot: -8deg;
+}
+
+/* Extra stickers filling vertical gaps */
+.sticker--church {
+    width: 95px; height: 95px;
+    top: 17%; left: 9%;
+    border-radius: 16px;
+    --rot: -5deg;
+}
+
+.sticker--mapgirl {
+    width: 95px; height: 95px;
+    top: 44%; right: 13%;
+    border-radius: 50%;
+    --rot: 11deg;
+}
+
+.sticker--plant2 {
+    width: 90px; height: 90px;
+    top: 72%; left: 4%;
+    border-radius: 50%;
+    --rot: -9deg;
+}
+
+body[data-state='celebration'] .sticker--blossom  { animation-delay: 0.3s; }
+body[data-state='celebration'] .sticker--book     { animation-delay: 0.8s; }
+body[data-state='celebration'] .sticker--pudding  { animation-delay: 1.3s; }
+body[data-state='celebration'] .sticker--kpop     { animation-delay: 1.8s; }
+body[data-state='celebration'] .sticker--dog      { animation-delay: 2.3s; }
+body[data-state='celebration'] .sticker--reader   { animation-delay: 2.8s; }
+body[data-state='celebration'] .sticker--chibi    { animation-delay: 3.3s; }
+body[data-state='celebration'] .sticker--traveler { animation-delay: 3.8s; }
+body[data-state='celebration'] .sticker--plant    { animation-delay: 4.3s; }
+body[data-state='celebration'] .sticker--church   { animation-delay: 4.8s; }
+body[data-state='celebration'] .sticker--mapgirl  { animation-delay: 5.3s; }
+body[data-state='celebration'] .sticker--plant2   { animation-delay: 5.8s; }
+
+/* ── Main card ── */
+main {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-screen {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: min(700px, 92vw);
+}
+
+.countdown-screen__header {
+    margin-bottom: 2rem;
+}
+
+.countdown-screen__for {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.countdown-screen__nickname {
+    font-style: italic;
+    color: #ff6f61;
+}
+
+.countdown-screen__title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+/* ── Timer grid ── */
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.countdown__unit {
+    background: #ff6f61;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+}
+
+.countdown__digit {
+    display: block;
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: 0.5rem;
+}
+
+.countdown__separator {
+    display: none;
+}
+
+/* ── Celebration screen ── */
+.celebration-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: min(700px, 92vw);
+}
+
+body[data-state='celebration'] .countdown-screen {
+    display: none;
+}
+
+body[data-state='celebration'] .celebration-screen {
+    display: flex;
+}
+
+@keyframes celebration-enter {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.celebration__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    animation: celebration-enter 0.8s ease both;
+    width: 100%;
+}
+
+.celebration__heading {
+    font-family: 'SuperChiby', cursive;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: normal;
+    color: #ff6f61;
+    line-height: 1.2;
+}
+
+.celebration__illustration img {
+    width: 220px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 24px;
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.12));
+}
+
+.celebration__message {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 460px;
+    line-height: 1.7;
+    border-top: 2px solid #ffb3ae;
+    border-bottom: 2px solid #ffb3ae;
+    padding: 1rem 1.5rem;
+}
+
+.celebration__message p {
+    font-style: italic;
+}
+
+.celebration__message-heart {
+    display: block;
+    width: 52px;
+    height: 52px;
+    margin: 0.6rem auto 0;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+/* ── Badge (replaces stamp) ── */
+.celebration__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, #ff9a9e, #ff6f61);
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(255, 111, 97, 0.4);
+    border: 3px solid rgba(255,255,255,0.6);
+}
+
+.celebration__badge-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+}
+
+.celebration__badge-icon {
+    font-size: 1.4rem;
+}
+
+/* ── Skip link ── */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: #333;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+    .sticker { display: none; }
+}
+
+@media (max-width: 500px) {
+    .countdown-screen__title { font-size: 1.6rem; }
+
+    .countdown__unit {
+        width: 70px;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .countdown__digit { font-size: 2.5rem; }
+    .countdown__label { font-size: 0.75rem; }
+
+    .celebration__heading { font-size: 2rem; }
+
+    .celebration__illustration img { width: 160px; }
+
+    .celebration__badge-text { font-size: 0.85rem; }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; worker-src blob:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <title>Happy Birthday, Leonor! 🌿</title>
+    <meta name="description" content="A birthday surprise counting down to a very special moment — just for Leonor." />
+    <link rel="canonical" href="https://joaofaria.github.io/lc-birthday/" />
+    <link rel="icon" type="image/svg+xml" href="/lc-birthday/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+
+  <body data-state="countdown">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Floating stickers in the pink background -->
+    <div class="bg-stickers" aria-hidden="true">
+      <img class="sticker sticker--blossom"  src="./assets/images/2845752789480563eca8fed5ad4cb029.jpg"                                                                                      alt="" />
+      <img class="sticker sticker--book"     src="./assets/images/book.jpg"                                                                                                                 alt="" />
+      <img class="sticker sticker--pudding"  src="./assets/images/cute-kawaii-cake-chibi-mascot-cartoon-style-vector.jpg"                                                                   alt="" />
+      <img class="sticker sticker--kpop"     src="./assets/images/i_m_pid_1918,c_s_auto_br,bc_ffffff,s_630,q_90.jpg"                                                                        alt="" />
+      <img class="sticker sticker--dog"      src="./assets/images/um-close-de-um-adesivo-de-um-cachorro-com-um-olhar-triste-gerativo-de-ia_958124-61772.jpg"                                 alt="" />
+      <img class="sticker sticker--reader"   src="./assets/images/cartoon-girl-reading-book-with-big-eyes_895122-1605.avif"                                                                   alt="" />
+      <img class="sticker sticker--chibi"    src="./assets/images/chibi-mignon-kawaii-illustration-dessin-anime-jesus-fil-fer-barbele-tete_161819-1391.avif"                                   alt="" />
+      <img class="sticker sticker--traveler" src="./assets/images/cute-kid-girl-with-luggage-hand-drawn-cartoon-character-illustration_56104-1864.avif"                                        alt="" />
+      <img class="sticker sticker--plant"    src="./assets/images/kawaii-purple-potted-plant_25030-68542.avif"                                                                                 alt="" />
+      <img class="sticker sticker--church"   src="./assets/images/360_F_1646490877_b5zWBEn8syUZmXyZuQ8GxSLbZ1q2SQ7B.jpg"                                                                     alt="" />
+      <img class="sticker sticker--mapgirl"  src="./assets/images/chibi-girl-with-map-travel-theme-vector-62175262.avif"                                                                       alt="" />
+      <img class="sticker sticker--plant2"   src="./assets/images/cute-potted-plant_25030-68476.avif"                                                                                         alt="" />
+    </div>
+
+    <main id="main-content">
+
+      <!-- COUNTDOWN SCREEN -->
+      <section class="countdown-screen" aria-label="Birthday countdown for Leonor">
+        <header class="countdown-screen__header">
+          <p class="countdown-screen__for">for <em class="countdown-screen__nickname">Momo</em> ♡</p>
+          <h1 class="countdown-screen__title">Counting down to<br />Leonor's birthday</h1>
+        </header>
+
+        <div class="countdown" id="countdown" role="timer" aria-live="off" aria-label="Time remaining until Leonor's birthday">
+          <div class="countdown__unit">
+            <span class="countdown__digit" id="countdown-days" aria-label="days">00</span>
+            <span class="countdown__label" aria-hidden="true">Days</span>
+          </div>
+          <span class="countdown__separator" aria-hidden="true">:</span>
+          <div class="countdown__unit">
+            <span class="countdown__digit" id="countdown-hours" aria-label="hours">00</span>
+            <span class="countdown__label" aria-hidden="true">Hours</span>
+          </div>
+          <span class="countdown__separator" aria-hidden="true">:</span>
+          <div class="countdown__unit">
+            <span class="countdown__digit" id="countdown-minutes" aria-label="minutes">00</span>
+            <span class="countdown__label" aria-hidden="true">Minutes</span>
+          </div>
+          <span class="countdown__separator" aria-hidden="true">:</span>
+          <div class="countdown__unit">
+            <span class="countdown__digit" id="countdown-seconds" aria-label="seconds">00</span>
+            <span class="countdown__label" aria-hidden="true">Seconds</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CELEBRATION SCREEN -->
+      <section class="celebration-screen" aria-label="Birthday celebration" aria-hidden="true">
+        <div class="celebration__content">
+
+          <h1 class="celebration__heading">Happy Birthday,<br />Leonor!</h1>
+
+          <div class="celebration__illustration">
+            <img
+              src="./assets/images/cute-girl-holding-cake-bakery-restaurant-logo-concept-cartoon-character-hand-draw-art-illustration_56104-1301.avif"
+              alt="Kawaii girl holding a birthday cake"
+              width="260"
+              height="260"
+            />
+          </div>
+
+          <blockquote class="celebration__message">
+            <p>Wishing the happiest of birthdays to my favorite person.<br />You deserve the world today and always!</p>
+            <img class="celebration__message-heart" src="./assets/images/heart.avif" alt="♥" />
+          </blockquote>
+
+          <!-- Badge replacing the stamp -->
+          <div class="celebration__badge">
+            <span class="celebration__badge-icon">🌸</span>
+            <span class="celebration__badge-text">To Momô Minium<br/>from Momô Caju</span>
+            <span class="celebration__badge-icon">🎀</span>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <script type="module" src="./scripts/main.ts"></script>
+  </body>
+</html>
