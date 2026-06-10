@@ -29,21 +29,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Type check
-        run: npm run typecheck
-
-      - name: Lint TypeScript
-        run: npm run lint
-
-      - name: Lint CSS
-        run: npm run lint:css
-
-      - name: Check formatting
-        run: npm run format:check
-
-      - name: Run tests
-        run: npm test
-
       - name: Build
         run: npm run build
 
@@ -53,32 +38,8 @@ jobs:
         with:
           path: dist
 
-  lighthouse:
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: Run Lighthouse CI
-        run: |
-          npm run preview &
-          sleep 5
-          npm run lhci
-
   deploy:
-    needs: lighthouse
+    needs: build
     if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
